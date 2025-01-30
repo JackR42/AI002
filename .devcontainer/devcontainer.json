@@ -1,0 +1,11 @@
+{
+    "name": "DevContainer42",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "customizations": {"vscode": {"extensions": [
+                "ms-mssql.mssql",
+                "ms-azuretools.vscode-docker"
+            ]}},
+    "forwardPorts": [1433],
+  }
