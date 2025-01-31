@@ -1,14 +1,8 @@
-// .devcontainer/devcontainer.json
 {
   "name": "SQL Server Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "ports": [
-    "1433:1433" // Map the container port to your local machine
-  ],
-  "forwardPorts": [
-    1433
-  ],
-  "postCreateCommand": "sqlcmd -S localhost -U sa -P YourStrongPassword123! -Q \"CREATE DATABASE MyDatabase;\"" // Example: Create a database on startup
+  "image": "mcr.microsoft.com/mssql/server:2019-latest",
+  "postCreateCommand": "apt-get update && apt-get install -y curl && curl -sL https://aka.ms/sqlc-linux | bash && apt-get clean",
+  "containerEnv": {
+    "ACCEPT_EULA": "Y",
+   "SA_PASSWORD": "YourStrong!Passw0rd"
 }
